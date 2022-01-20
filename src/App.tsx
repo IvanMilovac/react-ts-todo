@@ -1,13 +1,29 @@
-import { GlobalStyle } from "./App.styles";
-import "./App.styles.ts";
+import React, { useState } from "react";
+import TodoItem from "./componets/TodoItem";
 
-function App() {
+const initialTodos: Todo[] = [
+  { text: "text1", complete: false },
+  { text: "text2", complete: true },
+];
+
+const App = () => {
+  const handleToggle = (todo: Todo) => {
+    const newTodos = todos.map((t) => {
+      if (t === todo) {
+        return { ...t, complete: !t.complete };
+      }
+      return t;
+    });
+    setTodos(newTodos);
+  };
+  const [todos, setTodos] = useState(initialTodos);
   return (
-    <>
-      <GlobalStyle />
-      <div className="App">Hii</div>
-    </>
+    <ul>
+      {todos.map((todo) => (
+        <TodoItem todo={todo} toggle={handleToggle} />
+      ))}
+    </ul>
   );
-}
+};
 
 export default App;
