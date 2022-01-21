@@ -3,9 +3,10 @@ import React, { FC } from "react";
 interface Props {
   todo: Todo;
   toggle: ToggleTodo;
+  handleDelete: DeleteTodo;
 }
 
-const TodoItem: FC<Props> = ({ todo, toggle }) => {
+const TodoItem: FC<Props> = ({ todo, toggle, handleDelete }) => {
   return (
     <li>
       <label
@@ -17,7 +18,9 @@ const TodoItem: FC<Props> = ({ todo, toggle }) => {
           onChange={() => toggle(todo)}
         />
         {todo.text}
+        <p></p>
       </label>
+      <span onClick={() => handleDelete(todo.id)}>&times;</span>
     </li>
   );
 };
