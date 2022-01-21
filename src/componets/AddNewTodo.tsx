@@ -1,3 +1,4 @@
+import React, { FC } from "react";
 import { FormStyle } from "./AddNewTodo.styles";
 
 interface IAddNewTodoProps {
@@ -6,11 +7,11 @@ interface IAddNewTodoProps {
   formData: Todo;
 }
 
-const AddNewTodo = ({
+const AddNewTodo: FC<IAddNewTodoProps> = ({
   handleSubmit,
   handleChange,
   formData,
-}: IAddNewTodoProps) => {
+}) => {
   return (
     <FormStyle onSubmit={handleSubmit}>
       <input

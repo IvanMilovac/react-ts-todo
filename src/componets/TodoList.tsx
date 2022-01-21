@@ -1,3 +1,4 @@
+import Rect, { FC } from "react";
 import TodoItem from "./TodoItem";
 import { TodoListStyle } from "./TodoList.styles";
 
@@ -7,7 +8,11 @@ interface ITodoListProps {
   handleDelete: DeleteTodo;
 }
 
-const TodoList = ({ todos, handleToggle, handleDelete }: ITodoListProps) => {
+const TodoList: FC<ITodoListProps> = ({
+  todos,
+  handleToggle,
+  handleDelete,
+}) => {
   return (
     <TodoListStyle>
       {todos?.map((todo) => (
